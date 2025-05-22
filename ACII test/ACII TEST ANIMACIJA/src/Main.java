@@ -35,39 +35,42 @@ public class Main {
             }
         }
         int broj = 0;
-        while(broj != 3){
+                while(broj != 10){
                 int i = 10;
                 drawMap(tabla);
-                Thread.sleep(1000);
-                for (int j = 18; j < 36; j++) {
-                    tabla[i][j] = "#";
+                Thread.sleep(500);
+
+                for (int j = 18; j < 35; j++) {
+                    tabla[i][j] = "(";
                 }
                 drawMap(tabla);
-                Thread.sleep(1000);
+                Thread.sleep(500);
                 i = 9;
-                for (int j = 23; j < 40; j++) {
-                    tabla[i][j] = "#";
+                for (int j = 26; j < 46; j++) {
+                    tabla[i][j] = "*";
                 }
                 drawMap(tabla);
-                Thread.sleep(1000);
+                Thread.sleep(500);
+
                 i = 8;
-                for (int j = 27; j < 43; j++) {
-                    tabla[i][j] = "#";
+                for (int j = 29; j < 50; j++) {
+                    tabla[i][j] = "^";
                 }
                 drawMap(tabla);
-                Thread.sleep(1000);
+                Thread.sleep(500);
+
                 i = 7;
-                for (int j = 30; j < 47; j++) {
-                    tabla[i][j] = "#";
+                for (int j = 36; j < 55; j++) {
+                    tabla[i][j] = "*";
                 }
                 drawMap(tabla);
-                Thread.sleep(1000);
+                Thread.sleep(500);
                 i = 6;
-                for (int j = 35; j < 52; j++) {
-                    tabla[i][j] = "#";
+                for (int j = 45; j < 64; j++) {
+                    tabla[i][j] = ".";
                 }
                 drawMap(tabla);
-                Thread.sleep(1000);
+                Thread.sleep(500);
                 i = 5;
             broj++;
             clear(tabla);
@@ -77,6 +80,12 @@ public class Main {
     static void drawMap(String[][] tabla){
         for (int i = 0; i < 20; i++) {
             for (int j = 0; j < 70; j++) {
+                if(tabla[i][j].equals("|")){
+                    System.out.print("\u001B[90m");
+                }
+                else{
+                    System.out.print("\u001B[0m");
+                }
                 if (i == 19) {
                     tabla[i][j] = "-";
                 }
@@ -84,7 +93,6 @@ public class Main {
             }
             System.out.println();
         }
-    }
     static void clear(String[][] tabla){
         for (int i = 0; i <= 10; i++) {
             for (int j = 0; j < 70; j++) {
